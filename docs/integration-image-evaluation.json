@@ -1,0 +1,23 @@
+{
+  "synthetic": true,
+  "generatedAt": "2026-11-11T09:33:50.030Z",
+  "job": "done",
+  "error": null,
+  "expenseNumber": 4,
+  "extraction": {
+    "merchant": "POSTO EXEMPLO",
+    "date": "2026-11-10",
+    "category": "combustivel",
+    "amountCents": 38550,
+    "currency": "BRL",
+    "city": "Campinas",
+    "state": "SP",
+    "receiptNumber": "DEMO-001",
+    "evidence": "TOTAL PAGO R$ 385,50"
+  },
+  "ai": {
+    "provider": "Gemini",
+    "model": "gemini-3.5-flash-lite",
+    "elapsedMs": 5135
+  }
+}

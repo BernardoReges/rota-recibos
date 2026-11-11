@@ -1,0 +1,15 @@
+{
+  "synthetic": true,
+  "reports": [
+    {
+      "model": "gemini-3.1-flash-lite",
+      "error": "TimeoutError"
+    },
+    {
+      "model": "gemini-3.5-flash-lite",
+      "status": 200,
+      "text": "POSTO EXEMPLO\n10/11/2026\nR$ 385,50",
+      "finishReason": "STOP"
+    }
+  ]
+}

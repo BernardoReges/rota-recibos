@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-11-11T02:53:07.730Z",
+  "synthetic": true,
+  "notes": "Casos de regressão do próprio projeto. Não medem acurácia em documentos reais.",
+  "results": [
+    {
+      "name": "total-vs-troco",
+      "data": {
+        "merchant": "POSTO EXEMPLO",
+        "date": "2026-11-10",
+        "category": "combustivel",
+        "amountCents": 38550,
+        "currency": "BRL",
+        "city": "Campinas",
+        "state": "SP",
+        "receiptNumber": "DEMO-001",
+        "evidence": "TOTAL PAGO R$ 385,50"
+      },
+      "provider": "Gemini",
+      "model": "gemini-3.1-flash-lite",
+      "elapsedMs": 1285,
+      "checks": [
+        {
+          "field": "amountCents",
+          "expected": 38550,
+          "actual": 38550,
+          "passed": true
+        },
+        {
+          "field": "date",
+          "expected": "2026-11-10",
+          "actual": "2026-11-10",
+          "passed": true
+        },
+        {
+          "field": "category",
+          "expected": "combustivel",
+          "actual": "combustivel",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "valor-ausente",
+      "data": {
+        "merchant": "RESTAURANTE EXEMPLO",
+        "date": null,
+        "category": "alimentacao",
+        "amountCents": null,
+        "currency": null,
+        "city": null,
+        "state": null,
+        "receiptNumber": null,
+        "evidence": "RESTAURANTE EXEMPLO Refeicao Total pago: [ilegivel] Data: [ilegivel]"
+      },
+      "provider": "Gemini",
+      "model": "gemini-3.1-flash-lite",
+      "elapsedMs": 1271,
+      "checks": [
+        {
+          "field": "amountCents",
+          "expected": null,
+          "actual": null,
+          "passed": true
+        },
+        {
+          "field": "date",
+          "expected": null,
+          "actual": null,
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

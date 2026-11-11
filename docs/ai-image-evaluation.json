@@ -1,0 +1,22 @@
+{
+  "synthetic": true,
+  "data": {
+    "merchant": "POSTO EXEMPLO",
+    "date": "2026-11-10",
+    "category": "combustivel",
+    "amountCents": 38550,
+    "currency": "BRL",
+    "city": "Campinas",
+    "state": "SP",
+    "receiptNumber": "DEMO-001",
+    "evidence": "TOTAL PAGO R$ 385,50"
+  },
+  "provider": "Gemini",
+  "model": "gemini-3.5-flash-lite",
+  "elapsedMs": 1732,
+  "checks": {
+    "amountCents": true,
+    "date": true,
+    "category": true
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "rota-recibos",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Prestação de contas de viagens com leitura assistida de comprovantes",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.mjs",
+    "demo": "node --env-file-if-exists=.env scripts/demo.mjs",
+    "test": "node --test",
+    "backup": "node --env-file-if-exists=.env scripts/backup.mjs",
+    "evaluate:ai": "node --env-file-if-exists=.env scripts/evaluate-ai.mjs"
+  }
+}

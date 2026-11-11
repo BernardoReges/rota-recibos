@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-11-11T09:51:49.761Z",
+  "node": "v24.22.1",
+  "tests": 27,
+  "failures": 0,
+  "testExitCode": 0,
+  "syntaxChecked": 15,
+  "syntaxErrors": [],
+  "linksChecked": 9,
+  "missingLinks": []
+}

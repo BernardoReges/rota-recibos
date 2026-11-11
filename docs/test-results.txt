@@ -1,0 +1,172 @@
+TAP version 13
+# Subtest: senha exige 12 caracteres e não é guardada em texto puro
+ok 1 - senha exige 12 caracteres e não é guardada em texto puro
+  ---
+  duration_ms: 89.5157
+  type: 'test'
+  ...
+# Subtest: sessões usam token aleatório, resumo no banco e vencimento
+ok 2 - sessões usam token aleatório, resumo no banco e vencimento
+  ---
+  duration_ms: 56.4289
+  type: 'test'
+  ...
+# Subtest: centavos, datas e quantidades inválidas são rejeitados
+ok 3 - centavos, datas e quantidades inválidas são rejeitados
+  ---
+  duration_ms: 1.371
+  type: 'test'
+  ...
+# Subtest: CSV protege texto de fórmulas e mantém separador brasileiro
+ok 4 - CSV protege texto de fórmulas e mantém separador brasileiro
+  ---
+  duration_ms: 0.3324
+  type: 'test'
+  ...
+# Subtest: transação reverte escrita incompleta
+ok 5 - transação reverte escrita incompleta
+  ---
+  duration_ms: 23.0731
+  type: 'test'
+  ...
+# Subtest: upload verifica assinatura, duplicidade e limite
+ok 6 - upload verifica assinatura, duplicidade e limite
+  ---
+  duration_ms: 29.8836
+  type: 'test'
+  ...
+# Subtest: sem chave não simula extração
+ok 7 - sem chave não simula extração
+  ---
+  duration_ms: 0.8368
+  type: 'test'
+  ...
+# Subtest: provedor falha sem expor token ou transformar erro em resultado
+ok 8 - provedor falha sem expor token ou transformar erro em resultado
+  ---
+  duration_ms: 1.2445
+  type: 'test'
+  ...
+# Subtest: extração envia segredo no cabeçalho e valida JSON de retorno
+ok 9 - extração envia segredo no cabeçalho e valida JSON de retorno
+  ---
+  duration_ms: 0.3896
+  type: 'test'
+  ...
+# Subtest: botão de demonstração escolhe o motorista que tem a viagem de exemplo
+ok 10 - botão de demonstração escolhe o motorista que tem a viagem de exemplo
+  ---
+  duration_ms: 183.1113
+  type: 'test'
+  ...
+# Subtest: motorista consegue baixar comprovante anexado pela empresa à sua viagem
+ok 11 - motorista consegue baixar comprovante anexado pela empresa à sua viagem
+  ---
+  duration_ms: 203.6428
+  type: 'test'
+  ...
+# Subtest: relatório consolida somente aprovadas e aplica período, categoria e UF
+ok 12 - relatório consolida somente aprovadas e aplica período, categoria e UF
+  ---
+  duration_ms: 177.1316
+  type: 'test'
+  ...
+# Subtest: CSV vinculado é refeito na revisão sem repetir linhas já aprovadas
+ok 13 - CSV vinculado é refeito na revisão sem repetir linhas já aprovadas
+  ---
+  duration_ms: 147.8659
+  type: 'test'
+  ...
+# Subtest: soma separa aprovado, pendente e devolvido sem duplicar centavos
+ok 14 - soma separa aprovado, pendente e devolvido sem duplicar centavos
+  ---
+  duration_ms: 0.847
+  type: 'test'
+  ...
+# Subtest: despesas fora da viagem, moeda estrangeira e UF inválida são rejeitadas
+ok 15 - despesas fora da viagem, moeda estrangeira e UF inválida são rejeitadas
+  ---
+  duration_ms: 0.3444
+  type: 'test'
+  ...
+# Subtest: motorista não enxerga nem altera viagem, arquivo e despesa de outro
+ok 16 - motorista não enxerga nem altera viagem, arquivo e despesa de outro
+  ---
+  duration_ms: 192.1615
+  type: 'test'
+  ...
+# Subtest: motorista não cria viagens, usuários ou aprova a própria despesa
+ok 17 - motorista não cria viagens, usuários ou aprova a própria despesa
+  ---
+  duration_ms: 157.2012
+  type: 'test'
+  ...
+# Subtest: fluxo completo: anexo, envio, devolução, correção, aprovação e exportação
+ok 18 - fluxo completo: anexo, envio, devolução, correção, aprovação e exportação
+  ---
+  duration_ms: 276.0346
+  type: 'test'
+  ...
+# Subtest: mesmo arquivo é rejeitado; possível duplicidade semântica exige conferência
+ok 19 - mesmo arquivo é rejeitado; possível duplicidade semântica exige conferência
+  ---
+  duration_ms: 130.5572
+  type: 'test'
+  ...
+# Subtest: revisão obsoleta e encerramento com pendência são rejeitados
+ok 20 - revisão obsoleta e encerramento com pendência são rejeitados
+  ---
+  duration_ms: 129.2282
+  type: 'test'
+  ...
+# Subtest: falha da IA mantém anexo e campos originais; é possível tentar de novo
+ok 21 - falha da IA mantém anexo e campos originais; é possível tentar de novo
+  ---
+  duration_ms: 1038.809
+  type: 'test'
+  ...
+# Subtest: resposta atrasada da IA não substitui uma edição manual mais recente
+ok 22 - resposta atrasada da IA não substitui uma edição manual mais recente
+  ---
+  duration_ms: 638.9283
+  type: 'test'
+  ...
+# Subtest: troca de senha exige senha atual e revoga todas as sessões anteriores
+ok 23 - troca de senha exige senha atual e revoga todas as sessões anteriores
+  ---
+  duration_ms: 267.213
+  type: 'test'
+  ...
+# Subtest: requisições de formulário e sem cabeçalho da aplicação são bloqueadas
+ok 24 - requisições de formulário e sem cabeçalho da aplicação são bloqueadas
+  ---
+  duration_ms: 27.3361
+  type: 'test'
+  ...
+# Subtest: cookie é próprio do produto e logout invalida a sessão no servidor
+ok 25 - cookie é próprio do produto e logout invalida a sessão no servidor
+  ---
+  duration_ms: 60.4718
+  type: 'test'
+  ...
+# Subtest: demonstração não abre acesso sem estar habilitada na instalação
+ok 26 - demonstração não abre acesso sem estar habilitada na instalação
+  ---
+  duration_ms: 24.4173
+  type: 'test'
+  ...
+# Subtest: login limita tentativas e não informa se o e-mail existe
+ok 27 - login limita tentativas e não informa se o e-mail existe
+  ---
+  duration_ms: 33.466
+  type: 'test'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 27
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3405.8119
