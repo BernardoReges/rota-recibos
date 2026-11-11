@@ -60,7 +60,7 @@ O SQLite em `DATA_DIR/app.sqlite` guarda usuários, sessões, viagens, despesas,
 
 A IA recebe o documento completo autorizado. Não há anonimização garantida de foto ou PDF, e o filtro de saída não impede que dados sensíveis do original sejam transmitidos. Use somente o necessário e avalie as condições do provedor antes de dados reais. A extração instrui o modelo a não reproduzir CPF, dados bancários ou cartões. Isso é uma redução de exposição na saída, não uma garantia de remoção na entrada.
 
-Senhas usam scrypt e salt; sessões usam tokens aleatórios com hashes no banco e vencimento. O SQLite, os CSVs e backups não são criptografados pelo aplicativo. Proteja a máquina e o volume. Veja [SECURITY.md](SECURITY.md).
+Senhas usam scrypt e salt; sessões usam tokens aleatórios com hashes no banco e vencimento. O SQLite, os CSVs e backups não são criptografados pelo aplicativo. Proteja a máquina e o volume. Veja [SECURITY.md](../SECURITY.md).
 
 ## Backup e restauração
 
