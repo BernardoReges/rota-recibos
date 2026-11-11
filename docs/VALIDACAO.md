@@ -4,9 +4,13 @@
 
 Aplicação local executada com Node.js 24 no Windows. Após a queda de energia ocorrida entre as sessões, `PRAGMA integrity_check` retornou **ok** no banco demonstrativo, preservando a viagem e os três comprovantes que já existiam. Os ensaios seguintes adicionaram uma imagem e concluíram o fluxo de motorista para empresa. Isso documenta a recuperação observada; não garante recuperação em todo tipo de falha de disco ou energia.
 
+## Revisão para publicação — versão 0.1.1
+
+A revisão acrescentou identificação persistente de modo e produto no banco. A demonstração passou a ignorar DATA_DIR real, usando DEMO_DATA_DIR. São bloqueadas as trocas demo/real, o acesso demonstrativo a banco antigo com dados e a reutilização do banco por outro produto. Os testes verificam que uma recusa não altera usuários, registros ou tarefas. As duas demonstrações locais existentes foram identificadas após backup, com integridade e preservação de dados conferidas.
+
 ## Testes determinísticos
 
-**27 testes aprovados, zero falhas na rodada final.** São verificados: acesso direto à viagem/arquivo/exportação de outro motorista, bloqueio de aprovação pelo motorista, ciclo de devolução e reenvio, categorias e período, centavos, totais separados, comprovante duplicado, possível duplicidade semântica, versão obsoleta, fechamento com pendências, resposta de IA atrasada, arquivo preservado em falha do provedor, sessão, CSRF e troca de senha com revogação.
+**32 testes aprovados, zero falhas na rodada final.** São verificados: acesso direto à viagem/arquivo/exportação de outro motorista, bloqueio de aprovação pelo motorista, ciclo de devolução e reenvio, categorias e período, centavos, totais separados, comprovante duplicado, possível duplicidade semântica, versão obsoleta, fechamento com pendências, resposta de IA atrasada, arquivo preservado em falha do provedor, sessão, CSRF e troca de senha com revogação.
 
 Os testes também conferem o motorista escolhido pelo botão demonstrativo, o relatório por período/categoria/UF, o acesso do motorista ao anexo enviado pela empresa à própria viagem e a reconstrução do CSV sem repetir linhas já aprovadas. O arquivo mantém BOM UTF-8; o comparativo com a API considera que a decodificação de Fetch remove esse marcador.
 

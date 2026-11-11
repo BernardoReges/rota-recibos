@@ -1,5 +1,6 @@
+import { demoDirectory } from "../src/demo-config.mjs";
 process.env.DEMO = "true";
-process.env.DATA_DIR ||= "data/demo";
+process.env.DATA_DIR = demoDirectory();
 const { createApp, domain } = await import("../server.mjs");
 const { seed } = await import("../src/seed.mjs");
 const app = createApp(domain, { dir: process.env.DATA_DIR, demo: true });

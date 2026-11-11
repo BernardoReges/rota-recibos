@@ -15,6 +15,12 @@ export function createApp(
   { dir, demo = false, runner = extract, origin, secure = false } = {},
 ) {
   const store = new Store(dir);
+  try {
+    store.bindMode(demo, domain.product);
+  } catch (error) {
+    store.db.close();
+    throw error;
+  }
   const attempts = new Map();
   const readLimits = new Map();
   let processing = false;

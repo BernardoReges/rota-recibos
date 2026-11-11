@@ -2,6 +2,7 @@
 
 Uma instalação representa uma empresa de gestão logística. A empresa acessa suas viagens; motoristas acessam somente as viagens vinculadas a eles, inclusive no download dos comprovantes. Isto não é um SaaS com isolamento entre organizações.
 
+- A pasta de dados registra modo (real/demo) e produto. O servidor recusa configurações incompatíveis; o comando demo usa DEMO_DATA_DIR e ignora a pasta real DATA_DIR.
 - Senhas usam scrypt com salt aleatório. Sessões usam tokens aleatórios, apenas seus hashes ficam no banco, com validade de oito horas.
 - Cookies HttpOnly e SameSite=Strict; `SECURE_COOKIES=true` deve ser usado atrás de HTTPS.
 - O servidor valida Host, Origin, cabeçalho da aplicação e tipo de conteúdo. SQL parametrizado; arquivos sem acesso estático público.

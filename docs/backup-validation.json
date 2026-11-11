@@ -1,10 +1,12 @@
 {
-  "generatedAt": "2026-11-11T09:53:19.199Z",
+  "generatedAt": "2026-11-11T15:56:55.290Z",
   "synthetic": true,
   "restoreIntegrity": "ok",
-  "recordsChecked": 5,
+  "recordsChecked": 6,
   "attachmentsChecked": 4,
   "recordsEqual": true,
   "attachmentBytesEqual": true,
+  "installationMode": "demo",
+  "installationProduct": "rota",
   "sourceUnchanged": true
 }

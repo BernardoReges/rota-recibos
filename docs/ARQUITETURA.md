@@ -33,6 +33,8 @@ SQLite em WAL, com gravações transacionais do cadastro de despesa e anexo. Os 
 
 Os números visíveis são sequenciais. Os IDs internos são aleatórios. O hash de conteúdo identifica reenvio do mesmo arquivo. A regra semântica de duplicidade é um alerta de conferência, não uma decisão antifraude.
 
+**Identidade da instalação.** O banco guarda modo (real ou demonstração) e produto. A verificação acontece antes da recuperação de tarefas e da abertura dos endpoints. Configurações incompatíveis são recusadas sem alterar os registros existentes. O comando de demonstração usa `DEMO_DATA_DIR`, independente da pasta real `DATA_DIR`. Uma base antiga com dados só pode ser adotada em modo real; a identificação de uma demonstração antiga exige conferência e backup explícitos.
+
 ## Permissões
 
 | Ação                           | Motorista                 | Empresa             |

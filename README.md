@@ -50,7 +50,7 @@ O CSV é uma planilha interoperável, não um arquivo XLSX com gráficos. **Não
 
 ## Experimente em minutos
 
-Requisito: **Node.js 24 LTS**. Sem dependências npm de runtime.
+Requisito: **Node.js 24 LTS**. Sem dependências npm de runtime. Na pasta do projeto, execute:
 
 ```sh
 npm run demo
@@ -76,7 +76,7 @@ Copie `.env.example` para `.env` e configure a sua chave e uma pasta diferente d
 GEMINI_API_KEY=sua_chave_somente_no_arquivo_local
 GEMINI_MODEL=gemini-3.1-flash-lite
 GEMINI_VISION_MODEL=gemini-3.5-flash-lite
-DATA_DIR=D:/DadosProjetos/rota-recibos-real
+DATA_DIR=./data/real
 DEMO=false
 ```
 
@@ -102,6 +102,8 @@ Uma instalação representa uma empresa de gestão logística. O administrador v
 
 O SQLite em `DATA_DIR/app.sqlite` guarda usuários, sessões, viagens, despesas, anexos, fila e eventos. Os anexos são BLOBs privados: não há pasta pública de comprovantes. Downloads verificam a sessão e a permissão. Limites atuais: 8 MB por arquivo e 500 documentos por instalação.
 
+`npm run demo` usa `DEMO_DATA_DIR` (padrão `./data/demo`), independente da pasta real em `DATA_DIR`. O banco registra modo e produto e recusa a troca entre demonstração e instalação real ou a abertura por outro aplicativo. No Windows, uma opção de pasta externa é `D:/DadosProjetos/rota-recibos-real`.
+
 A IA recebe o documento completo autorizado. Não há anonimização garantida de foto ou PDF, e o filtro de saída não impede que dados sensíveis do original sejam transmitidos. Use somente o necessário e avalie as condições do provedor antes de dados reais. A extração instrui o modelo a não reproduzir CPF, dados bancários ou cartões. Isso é uma redução de exposição na saída, não uma garantia de remoção na entrada.
 
 Senhas usam scrypt e salt; sessões usam tokens aleatórios com hashes no banco e vencimento. O SQLite, os CSVs e backups não são criptografados pelo aplicativo. Proteja a máquina e o volume. Veja [SECURITY.md](SECURITY.md).
@@ -109,10 +111,10 @@ Senhas usam scrypt e salt; sessões usam tokens aleatórios com hashes no banco 
 ## Backup e restauração
 
 ```sh
-npm run backup -- D:/Backups/RotaRecibos
+npm run backup -- ./backups
 ```
 
-O backup usa a API online do SQLite e valida integridade. Inclui os anexos, mas não a chave do provedor; guarde o `.env` de forma privada separada. Para restaurar, pare o servidor, preserve a pasta original, copie o backup para uma pasta nova como `app.sqlite` e aponte `DATA_DIR` para ela. As exportações podem ser regeneradas dos registros aprovados. Não substitua bancos em execução nem publique bancos, CSVs reais ou backups.
+O comando copia a base apontada por `DATA_DIR`; para salvar uma demonstração, aponte essa variável explicitamente para a pasta demonstrativa. O backup usa a API online do SQLite e valida integridade. Inclui os anexos, mas não a chave do provedor; guarde o `.env` de forma privada separada. Para restaurar, pare o servidor, preserve a pasta original, copie o backup para uma pasta nova como `app.sqlite` e aponte `DATA_DIR` para ela. As exportações podem ser regeneradas dos registros aprovados. Não substitua bancos em execução nem publique bancos, CSVs reais ou backups.
 
 ## Arquitetura e testes
 
@@ -134,12 +136,12 @@ npm run evaluate:ai
 
 Os testes cobrem permissões entre motoristas, transições, duplicidade, totais, arquivos, sessões, falhas e respostas atrasadas. Os ensaios reais da IA incluem texto, imagem e PDF fictícios, com total pago, troco e campos desconhecidos. Isso não mede acurácia em fotos reais de estrada, documentos fiscais variados ou imagens de baixa qualidade.
 
+Na revisão da versão **0.1.1**, passaram **32 testes**, incluindo isolamento do modo demonstrativo, proteção do banco de outro produto e preservação dos dados quando uma configuração incompatível é recusada.
+
 Leia [a validação e seus limites](docs/VALIDACAO.md), [a arquitetura](docs/ARQUITETURA.md), [o contrato da API](docs/API.md) e [o escopo](docs/ESCOPO.md).
 
-## Código aberto e publicação
+## Licença e desenvolvimento
 
-A recomendação é **código aberto sob MIT**, com infraestrutura reproduzível e comprovantes sintéticos. Os documentos, cadastros e credenciais de cada instalação são privados e não acompanham o código. Open source permite cópia e adaptação conforme a licença.
+Licenciado sob [MIT](LICENSE). Cada instalação configura sua própria chave de IA. Documentos, cadastros, bancos de dados e credenciais privados não fazem parte da distribuição. Os comprovantes incluídos em `fixtures/` são sintéticos.
 
-Desenvolvido com assistência de IA, usando padrões conhecidos de software. O responsável pelo portfólio deve compreender e explicar suas contribuições, sem reivindicar exclusividade da ideia ou certificação. Não há vínculo ou aprovação do iFood.
-
-O projeto permanece local para revisão do proprietário: nenhum repositório remoto, envio ao GitHub, domínio público ou implantação foi criado.
+Desenvolvido por [BernardoReges](https://github.com/BernardoReges), com assistência de IA. A base inicial de autenticação, persistência e extração é compartilhada com o CotaFlux; o fluxo de viagens, as permissões e os testes de negócio são próprios deste produto. Veja [CONTRIBUTING.md](CONTRIBUTING.md) para contribuir.

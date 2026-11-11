@@ -90,6 +90,7 @@ export class Store {
     CREATE TABLE IF NOT EXISTS files(id TEXT PRIMARY KEY,hash TEXT NOT NULL UNIQUE,name TEXT NOT NULL,mime TEXT NOT NULL,bytes BLOB NOT NULL,owner TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS audit(seq INTEGER PRIMARY KEY AUTOINCREMENT,at TEXT NOT NULL,actor TEXT NOT NULL,action TEXT NOT NULL,target TEXT NOT NULL,detail TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS jobs(id TEXT PRIMARY KEY,record_id TEXT NOT NULL,state TEXT NOT NULL,attempts INTEGER NOT NULL DEFAULT 0,error TEXT,created TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS installation(key TEXT PRIMARY KEY,value TEXT NOT NULL);
     CREATE UNIQUE INDEX IF NOT EXISTS one_active_job ON jobs(record_id) WHERE state IN ('pending','running');`);
   }
   transaction(fn) {
@@ -102,6 +103,44 @@ export class Store {
       this.db.exec("ROLLBACK");
       throw e;
     }
+  }
+  bindMode(demo, product) {
+    const expected = demo ? "demo" : "real";
+    this.transaction(() => {
+      const existing = this.db
+        .prepare("SELECT value FROM installation WHERE key='mode'")
+        .get()?.value;
+      const existingProduct = this.db
+        .prepare("SELECT value FROM installation WHERE key='product'")
+        .get()?.value;
+      if (existingProduct && existingProduct !== product)
+        throw Error(
+          "Esta pasta pertence a outra aplicação. Use uma pasta de dados própria para cada projeto.",
+        );
+      if (existing && existing !== expected)
+        throw Error(
+          "Esta pasta pertence a outro modo de instalação. Use pastas separadas para demonstração e dados reais.",
+        );
+      if (!existing) {
+        const populated =
+          this.db
+            .prepare(
+              "SELECT (SELECT COUNT(*) FROM users)+(SELECT COUNT(*) FROM records)+(SELECT COUNT(*) FROM files) n",
+            )
+            .get().n > 0;
+        if (demo && populated)
+          throw Error(
+            "Base existente sem identificação de demonstração. Preserve os dados e escolha uma pasta nova para o demo.",
+          );
+        this.db
+          .prepare("INSERT INTO installation(key,value) VALUES('mode',?)")
+          .run(expected);
+      }
+      if (!existingProduct)
+        this.db
+          .prepare("INSERT INTO installation(key,value) VALUES('product',?)")
+          .run(product);
+    });
   }
   get(kind, key) {
     const row = this.db
