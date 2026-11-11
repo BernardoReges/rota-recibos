@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-11-11T16:25:06.266Z",
+  "project": "rota-recibos",
+  "url": "https://github.com/BernardoReges/rota-recibos/actions/runs/43055440159",
+  "headSha": "074a388b44713a3568410bae3dd64dd2d3e4f922",
+  "conclusion": "success",
+  "platform": "ubuntu-latest",
+  "node": "24"
+}

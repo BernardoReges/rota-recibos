@@ -2,7 +2,7 @@
 
 Do comprovante do motorista à prestação de contas conferida pela empresa.
 
-![Node.js 24](https://img.shields.io/badge/Node.js-24-43853d) ![SQLite](https://img.shields.io/badge/SQLite-local-316192) ![JavaScript](https://img.shields.io/badge/JavaScript-ES_modules-f7df1e) ![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-blue)
+[![Testes](https://github.com/BernardoReges/rota-recibos/actions/workflows/tests.yml/badge.svg)](https://github.com/BernardoReges/rota-recibos/actions/workflows/tests.yml) ![Node.js 24](https://img.shields.io/badge/Node.js-24-43853d) ![SQLite](https://img.shields.io/badge/SQLite-local-316192) ![JavaScript](https://img.shields.io/badge/JavaScript-ES_modules-f7df1e) ![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-blue)
 
 ![Painel da empresa com dados fictícios](docs/painel.png)
 

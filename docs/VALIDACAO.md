@@ -49,4 +49,8 @@ Os campos não inserem HTML de documentos. A prévia de fotos e textos consulta 
 
 ## Limites e próxima etapa
 
-Não houve piloto real, medição de horas economizadas, benchmark de OCR com diversidade de imagens, homologação fiscal, integração bancária ou sincronização de Google Sheets/365. O CSV é uma exportação e um arquivo local atualizado, não uma conexão de planilha online. Docker e CI remoto estão preparados, mas não foram executados nesta entrega. O próximo passo é um piloto pequeno, descrito em `ESCOPO.md`; `piloto.csv` começa somente com cabeçalho. Este relatório registra a validação local anterior à primeira publicação do código. Não houve implantação pública da aplicação.
+Não houve piloto real, medição de horas economizadas, benchmark de OCR com diversidade de imagens, homologação fiscal, integração bancária ou sincronização de Google Sheets/365. O CSV é uma exportação e um arquivo local atualizado, não uma conexão de planilha online. A receita Docker está preparada, mas não foi executada nesta entrega. O próximo passo é um piloto pequeno, descrito em `ESCOPO.md`; `piloto.csv` começa somente com cabeçalho. Este relatório registra a validação local anterior à primeira publicação do código. Não houve implantação pública da aplicação.
+
+## Integração contínua no GitHub
+
+O [workflow de testes](https://github.com/BernardoReges/rota-recibos/actions/runs/43055440159) terminou com sucesso em `ubuntu-latest`, usando Node.js 24, no commit `074a388b44713a3568410bae3dd64dd2d3e4f922`. Evidência: `ci-validation.json`. A validação da interface e os ensaios de IA descritos acima foram realizados no Windows.
